@@ -15,7 +15,8 @@ interface UserInfo {
   extra?: any[]
 }
 
-const app = new Elysia()
+
+const app = new Elysia({ serve: { certFile: 'cert.pem', keyFile: 'key.pem' }})
   .get("/", () => "Hello Elysia")
   .post('/auth', ({ body }) => {
     console.log('body', body)
